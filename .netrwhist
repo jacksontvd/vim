@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/jacksontvd/Documents/algebra/250A/notes'
+let g:netrw_dirhist_2='/Users/jacksontvd/Documents/algebra/250A/hw/hw14'
+let g:netrw_dirhist_3='/Users/jacksontvd/Documents/philosophy/enchiridion'
+let g:netrw_dirhist_4='/Users/jacksontvd/Documents/algebra/250A/notes'
+let g:netrw_dirhist_5='/Users/jacksontvd/Documents/philosophy/enchiridion'
