@@ -89,7 +89,7 @@ let g:Tex_FoldedSections='part,bibliography,chapter,section,subsection,subsubsec
 
 let g:Tex_FoldedMisc='preamble,<<<'
 
-"enable spell check (press zg over selected word to add to dictionary)
+"enable spell check (press zg (zug) over selected word to add to (remove from)  dictionary)
 set spelllang=en_gb spell
 
 " define environments which will contain underscores etc to prevent error
@@ -108,6 +108,18 @@ map! <C-A>      &<ESC>o
 " easy ways to type double quotation mark
 map   ``	i\"\"<++><ESC>hhhhhxhhxli<ESC>l
 map!  ``	 \"\"<++><ESC>hhhhhxhhxli<ESC>li
+
+" easy ways to type parentheses
+map   ((	i\(\)<++><ESC>hhhhhxhhxli<ESC>l
+map!  ((	 \(\)<++><ESC>hhhhhxhhxli<ESC>li
+
+" easy ways to type brackets
+map   {{	i\{\}<++><ESC>hhhhhxhhxli<ESC>l
+map!  {{	 \{\}<++><ESC>hhhhhxhhxli<ESC>li
+
+" easy ways to type brackets
+map   [[	i\[\]<++><ESC>hhhhhxhhxli<ESC>l
+map!  [[	 \[\]<++><ESC>hhhhhxhhxli<ESC>li
 
 " map :W to do same as :w (and x)
 map   :W	:w
