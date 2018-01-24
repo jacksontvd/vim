@@ -109,18 +109,6 @@ map! <C-A>      &<ESC>o
 map   ``	i\"\"<++><ESC>hhhhhxhhxli<ESC>l
 map!  ``	 \"\"<++><ESC>hhhhhxhhxli<ESC>li
 
-" easy ways to type parentheses
-map   ((	i\(\)<++><ESC>hhhhhxhhxli<ESC>l
-map!  ((	 \(\)<++><ESC>hhhhhxhhxli<ESC>li
-
-" easy ways to type brackets
-map   {{	i\{\}<++><ESC>hhhhhxhhxli<ESC>l
-map!  {{	 \{\}<++><ESC>hhhhhxhhxli<ESC>li
-
-" easy ways to type brackets
-map   [[	i\[\]<++><ESC>hhhhhxhhxli<ESC>l
-map!  [[	 \[\]<++><ESC>hhhhhxhhxli<ESC>li
-
 " map :W to do same as :w (and x)
 map   :W	:w
 map   :X	:x
