@@ -73,21 +73,24 @@ set grepprg=grep\ -nH\ $*
 " Change default target to pdf, if not dvi is used
 let g:Tex_DefaultTargetFormat = 'pdf'
 
-" Use lualatex to compile (auto feynman diagram vertex spacing)
-let g:Tex_CompileRule_pdf = 'lualatex -shell-escape --interaction=nonstopmode --file-line-error-style $*'
+" Compile with pdflatex
+" let g:Tex_MultipleCompileFormats='pdf,bibtex,pdf,pdf'
 
-" Compile with bibtex
-let g:Tex_MultipleCompileFormats='bibtex,pdf'
+" Compile with lualatex
+" let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode $*'
+
+" Run multiple times to clear issues with references
+let g:Tex_MultipleCompileFormats='pdf,bibtex,pdf,pdf'
 
 " PDF display rule
 let g:Tex_ViewRule_pdf = 'Skim'
 
 " customize which LaTeX environments to fold
-let g:Tex_FoldedEnvironments='enum,tab,tikz,cd,verbatim,comment,exm,rmk,clm,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,exr,proof,sol,feynman,matrix,pmat,bmat'
+let g:Tex_FoldedEnvironments='enumerate,table,tabular,tikz,overlay,cd,verbatim,comment,environment,center,solution,question,minipage,exm,rmk,defn,clm,eq,gather,align,figure,subfigure,table,thebibliography,keywords,abstract,titlepage,exr,Proof,proof,sol,feynman,matrix,pmat,bmat'
 
-let g:Tex_FoldedSections='part,bibliography,chapter,section,subsection,subsubsection,paragraph,feynman'
+let g:Tex_FoldedSections='part,chapter,section,subsection,subsubsection,paragraph,solution,feynman'
 
-let g:Tex_FoldedMisc='preamble,<<<'
+let g:Tex_FoldedMisc='preamble,>>>,<<<'
 
 "enable spell check (press zg (zug) over selected word to add to (remove from)  dictionary)
 set spelllang=en_gb spell
@@ -113,7 +116,13 @@ map!  ``	 \"\"<++><ESC>hhhhhxhhxli<ESC>li
 map   :W	:w
 map   :X	:x
 
-" disable error jumping in latex
+
+map   :col	:%!column -t
+
+" map double equals to single alignment
+map!     ==  &=
+
+" disable error jumping in latex (off)
 let g:Tex_GotoError=0
 
 " Show preview LaTeX in math mode
