@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/jacksontvd/Documents/misc/grad_school/applications/fall_classes'
 let g:netrw_dirhist_2='/Users/jacksontvd/Documents/misc/math_cv'
+let g:netrw_dirhist_3='/Users/jacksontvd/Documents/misc/grad_school/applications/uw_seattle'
