@@ -92,7 +92,7 @@ let g:Tex_ViewRule_pdf = 'Skim'
 " customize which LaTeX environments to fold
 let g:Tex_FoldedEnvironments='largebox,enumerate,table,tabular,tikz,overlay,cd,verbatim,comment,environment,center,solution,question,minipage,exm,rmk,defn,clm,eq,gather,align,figure,subfigure,table,thebibliography,keywords,abstract,titlepage,exr,Proof,proof,sol,feynman,matrix,pmat,bmat'
 
-let g:Tex_FoldedSections='part,chapter,section,subsection,subsubsection,paragraph,solution,feynman'
+let g:Tex_FoldedSections='bibliography,part,chapter,section,subsection,subsubsection,paragraph,solution,feynman'
 
 let g:Tex_FoldedMisc='preamble,>>>,<<<'
 
