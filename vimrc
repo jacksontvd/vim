@@ -10,6 +10,10 @@ filetype plugin on
 " filetype specific indentation
 filetype indent on
 
+" overrule tex trying to be clever and find the difference between latex and plaintex
+" (this is useful for when you have chapters/sections of your document in different files)
+let g:tex_flavor = "latex"
+
 " disable mesy latex indentations
 autocmd FileType tex setlocal shiftwidth=0 
 
