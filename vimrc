@@ -117,14 +117,14 @@ map  <C-A>      i&<ESC>o
 map! <C-A>      &<ESC>o
 
 " easy ways to type double quotation mark
-map   ``	i\"\"<++><ESC>hhhhhxhhxli<ESC>l
-map!  ``	 \"\"<++><ESC>hhhhhxhhxli<ESC>li
+" map   ``	i\"\"<++><ESC>hhhhhxhhxli<ESC>l
+" map!  ``	 \"\"<++><ESC>hhhhhxhhxli<ESC>li
 
 " first type a word, then push the left single quote twice. This will
 " automatically put single quotes around the whole word.
 " (For LaTeX)
 " map   ''	i\' <ESC>hhxbi\`<ESC>hxwwli
-map!  ''	 \' <ESC>hhxbi\`<ESC>hxwwli
+map!  ``	 \' <ESC>hhxbi\`<ESC>hxwwli
 
 " map :W to do same as :w (and x)
 map   :W	:w
