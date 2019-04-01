@@ -7,8 +7,8 @@ syntax on
 " recognize filetypes
 filetype plugin on
 
-" filetype specific indentation
-filetype indent on
+" no filetype specific indentation
+filetype indent off
 
 " linewrap indentation
 set breakindent
@@ -83,8 +83,8 @@ let g:tex_flavor = "latex"
 autocmd FileType tex setlocal shiftwidth=0 
 
 " PDF display in zathura
-let g:vimtex_view_method='zathura'
-" let g:vimtex_view_method='skim'
+" let g:vimtex_view_method='zathura'
+let g:vimtex_view_method='skim'
 
 "" Turn some commands into symbols (e.g. \in, \Delta, ...)
 set conceallevel=1
@@ -120,27 +120,9 @@ au filetype tex syntax region texRefZone start='\\Cref{' end='}'
 map  <C-B>      YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<esc>kA<esc>o
 map! <C-B> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<esc>kA<esc>o
 
-" put \left(\right) for ((
-map!  ((      \left(\right)<ESC>hhhhhhi
-
-" put \left\{\right\} for {{
-map!  {{      \left\{\right\}<ESC>hhhhhhhi
-
-" put \left[\right] for [[
-map!  [[      \left[\right]<ESC>hhhhhhi
-
-" turn (x) into \frac{(x)}{}
-map!  //      } <ESC>Bi\frac{<ESC>Eli{}<ESC>i
-
 " put &\n for cntrl-a
 map  <C-A>      i&<ESC>o
 map! <C-A>      &<ESC>o
-
-" first type a word, then push the left single quote twice. This will
-" automatically put single quotes around the whole word.
-" (For LaTeX)
-" map   ''	i\' <ESC>hhxbi\`<ESC>hxwwli
-map!  ``	 \' <ESC>hhxbi\`<ESC>hxwwli
 
 " map :W to do same as :w (and x)
 map   :W	:w
@@ -174,3 +156,17 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+" -   -   -   -   -   -   -   -
+"     UltiSnips
+" -   -   -   -   -   -   -   -
+
+" open snippets file in new tab (enter :UltiSnipsEdit FileType to edit)
+let g:UltiSnipsEditSplit='tabdo'
+
+" trigger keys for ultisnips
+let g:UltiSnipsExpandTrigger             =  '<tab>'
+let g:UltiSnipsListSnippets              =  '<c-tab>'
+let g:UltiSnipsJumpForwardTrigger        =  '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger       =  '<c-k>'
+

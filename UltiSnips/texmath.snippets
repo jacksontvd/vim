@@ -1,0 +1,74 @@
+priority -50
+
+extends texmath
+
+# double // does the same as frac
+snippet // "Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet (( "Parentheses" iA
+\left($1\right)$0
+endsnippet
+
+snippet {{ "Curly Brackets" iA
+\left\{$1\right\}$0
+endsnippet
+
+snippet [[ "Square Brackets" iA
+\left[$1\right]$0
+endsnippet
+
+snippet '' "single quote" iA
+\`$1'$0
+endsnippet
+
+snippet "" "double quotes" iA
+\`\`$1''$0
+endsnippet
+
+# automatic subscript
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+# subscript triggered by __
+snippet __ "subscript" iA
+_{$1}$0
+endsnippet
+
+# superscript triggered by ^^
+snippet ^^ "superscript" iA
+^{$1}$0
+endsnippet
+
+# define math "context" so weird math specific snipets don't get in the way of writing
+# text. Add: 
+# context "math()"
+# to make something fall under this context.
+global !p
+texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C',
+'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS',
+'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+
+texIgnoreMathZones = ['texMathText']
+
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+
+ignore = texIgnoreMathZoneIds[0]
+
+def math():
+    synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+    try:
+        first = next(
+            i for i in reversed(synstackids)
+            if i in texIgnoreMathZoneIds or i in texMathZoneIds
+        )
+        return first != ignore
+    except StopIteration:
+        return False
+endglobal
