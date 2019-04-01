@@ -10,13 +10,6 @@ filetype plugin on
 " filetype specific indentation
 filetype indent on
 
-" overrule tex trying to be clever and find the difference between latex and plaintex
-" (this is useful for when you have chapters/sections of your document in different files)
-let g:tex_flavor = "latex"
-
-" disable mesy latex indentations
-autocmd FileType tex setlocal shiftwidth=0 
-
 " linewrap indentation
 set breakindent
 
@@ -64,7 +57,7 @@ set modeline
 set ttyfast
 
 "ctrl-l redraws the screen (get rid of search highlighting)
-nnoremap <silent> <C-l> :nohl<CR><C-l> 
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " set colorscheme (off in favor of badwolf)
 " colorscheme astronaut
@@ -78,30 +71,45 @@ set wildmenu
 " ctrl n for completion
 set grepprg=grep\ -nH\ $*
 
-" Change default target to pdf, if not dvi is used
-let g:Tex_DefaultTargetFormat = 'pdf'
+" -   -   -   -   -   -   -   -
+"     LaTeX 
+" -   -   -   -   -   -   -   -
 
-" Compile with pdflatex
-" let g:Tex_MultipleCompileFormats='pdf,bibtex,pdf,pdf'
+" overrule tex trying to be clever and find the difference between latex and plaintex
+" (this is useful for when you have chapters/sections of your document in different files)
+let g:tex_flavor = "latex"
 
-" Compile with lualatex
-" let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode $*'
+" disable mesy latex indentations
+autocmd FileType tex setlocal shiftwidth=0 
 
-" Run multiple times to clear issues with references
-let g:Tex_MultipleCompileFormats='pdf,bibtex,pdf,pdf'
+" PDF display in zathura
+let g:vimtex_view_method='zathura'
+" let g:vimtex_view_method='skim'
 
-" PDF display rule
-let g:Tex_ViewRule_pdf = 'Skim'
+"" Turn some commands into symbols (e.g. \in, \Delta, ...)
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+" turn off default folding
+let g:tex_fold_enabled = 0
+
+" allow special package (vim-tex-fold-master) to fold. 
+" za folds the fold the cursor is in, zx folds all others (i.e. to fold all go to top and
+" do zx)
+let g:tex_fold_override_foldtext = 1
+
+" allow the markers {{{}}} to indicate custom folding
+let g:tex_fold_allow_marker = 1
 
 " customize which LaTeX environments to fold
-let g:Tex_FoldedEnvironments='largebox,enumerate,table,tabular,tikz,overlay,cd,verbatim,comment,environment,center,solution,question,minipage,exm,rmk,defn,clm,eq,gather,align,figure,subfigure,table,thebibliography,keywords,abstract,titlepage,exr,Proof,proof,sol,feynman,matrix,pmat,bmat'
-
-let g:Tex_FoldedSections='bibliography,part,chapter,section,subsection,subsubsection,paragraph,solution,feynman'
-
-let g:Tex_FoldedMisc='preamble,>>>,<<<'
+let g:tex_fold_additional_envs = ['largebox','enumerate','table','tabular','tikz','overlay','cd','verbatim','comment','environment','center','solution','question','minipage','exm','rmk','defn','clm','eq','gather','align','figure','subfigure','table','thebibliography','keywords','abstract','titlepage','exr','Proof','proof','sol','feynman','matrix','pmat','bmat']
+" let g:Tex_FoldedSections='bibliography,part,chapter,section,subsection,subsubsection,paragraph,solution,feynman'
 
 "enable spell check (press zg (zug) over selected word to add to (remove from)  dictionary)
-set spelllang=en_gb spell
+" also, if you press control-p, it makes a guess for the most recent mistake.
+setlocal spell
+set spelllang=en_gb
+inoremap <C-p> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " define environments which will contain underscores etc to prevent error
 " highlighting
@@ -110,15 +118,23 @@ au filetype tex syntax region texRefZone start='\\Cref{' end='}'
 
 " put \begin{} \end{} tags tags around the current word
 map  <C-B>      YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<esc>kA<esc>o
-map! <C-B> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<++><esc>kA<esc>o
+map! <C-B> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<esc>kA<esc>o
+
+" put \left(\right) for ((
+map!  ((      \left(\right)<ESC>hhhhhhi
+
+" put \left\{\right\} for {{
+map!  {{      \left\{\right\}<ESC>hhhhhhhi
+
+" put \left[\right] for [[
+map!  [[      \left[\right]<ESC>hhhhhhi
+
+" turn (x) into \frac{(x)}{}
+map!  //      } <ESC>Bi\frac{<ESC>Eli{}<ESC>i
 
 " put &\n for cntrl-a
 map  <C-A>      i&<ESC>o
 map! <C-A>      &<ESC>o
-
-" easy ways to type double quotation mark
-" map   ``	i\"\"<++><ESC>hhhhhxhhxli<ESC>l
-" map!  ``	 \"\"<++><ESC>hhhhhxhhxli<ESC>li
 
 " first type a word, then push the left single quote twice. This will
 " automatically put single quotes around the whole word.
@@ -134,9 +150,6 @@ map   :col	:%!column -t
 
 " map double equals to single alignment
 map!     ==  &=
-
-" disable error jumping in latex (off)
-let g:Tex_GotoError=0
 
 " Show preview LaTeX in math mode
 " set conceallevel=2
