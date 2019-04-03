@@ -2,49 +2,6 @@ priority -50
 
 extends texmath
 
-# double // does the same as frac
-snippet // "Fraction" iA
-\\frac{$1}{$2}$0
-endsnippet
-
-snippet (( "Parentheses" iA
-\left($1\right)$0
-endsnippet
-
-snippet {{ "Curly Brackets" iA
-\left\{$1\right\}$0
-endsnippet
-
-snippet [[ "Square Brackets" iA
-\left[$1\right]$0
-endsnippet
-
-snippet '' "single quote" iA
-\`$1'$0
-endsnippet
-
-snippet "" "double quotes" iA
-\`\`$1''$0
-endsnippet
-
-# automatic subscript
-snippet '([A-Za-z])(\d)' "auto subscript" wrA
-`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
-endsnippet
-snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
-`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
-endsnippet
-
-# subscript triggered by __
-snippet __ "subscript" iA
-_{$1}$0
-endsnippet
-
-# superscript triggered by ^^
-snippet ^^ "superscript" iA
-^{$1}$0
-endsnippet
-
 # define math "context" so weird math specific snipets don't get in the way of writing
 # text. Add: 
 # context "math()"
@@ -72,3 +29,231 @@ def math():
     except StopIteration:
         return False
 endglobal
+
+
+
+# this allows one to put mathematical symbols in section titles (it takes two arguments,
+# the first of which is math, the second of which is the plaintext replacment)
+snippet texor "texorpdfstring" i
+\texorpdfstring{$$1$}{$2}$0
+endsnippet
+
+# double // does the same as frac
+snippet // "Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet (( "Parentheses" iA
+\left($1\right)$0
+endsnippet
+
+snippet {{ "Curly Brackets" iA
+\left\\{$1\right\\}$0
+endsnippet
+
+snippet {} "Invisible Curly Brackets" iA
+{$1}$0
+endsnippet
+
+snippet [[ "Square Brackets" iA
+\left[$1\right]$0
+endsnippet
+
+snippet $$ "math environment" iA
+$$1$$0
+endsnippet
+
+snippet '' "single quote" iA
+\`$1'$0
+endsnippet
+
+snippet "" "double quotes" iA
+\`\`$1''$0
+endsnippet
+
+snippet doc "preample" b
+\documentclass{amsart}
+\usepackage{master}
+\begin{document}
+\title{Lecture $1\\\ Math $2}
+\author{Lecture: Professor $3\\\ Notes: Jackson Van Dyke}
+\maketitle
+$0
+\end{document}
+endsnippet
+
+# automatic subscript
+context "math()"
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+context "math()"
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+# subscript triggered by __
+snippet __ "subscript" iA
+_{$1}$0
+endsnippet
+
+# superscript triggered by ^^
+snippet ^^ "superscript" iA
+^{$1}$0
+endsnippet
+
+# three dots goes to three low dots
+snippet ... "dots" iA
+\ldots
+endsnippet
+
+# in math mode three dots does to three middle dots
+snippet c.. "dots" iA
+\cdots
+endsnippet
+
+# environment snippets:
+
+snippet eqn "Equation" b
+\begin{equation}
+$1
+\end{equation}$0
+endsnippet
+
+snippet equation "Equation" b
+\begin{equation}
+$1
+\end{equation}$0
+endsnippet
+
+snippet align "align" b
+\begin{align}
+$1
+\end{align}$0
+endsnippet
+
+snippet proof "Proof" b
+\begin{proof}
+$1
+\end{proof}$0
+endsnippet
+
+snippet prop "Proposition" b
+\begin{prop}
+$1
+\end{prop}$0
+endsnippet
+
+snippet thm "Theorem" b
+\begin{thm}
+$1
+\end{thm}$0
+endsnippet
+
+snippet lem "Lemma" b
+\begin{lem}
+$1
+\end{lem}$0
+endsnippet
+
+snippet cor "Corollary" b
+\begin{cor}
+$1
+\end{cor}$0
+endsnippet
+
+snippet con "Conjecture" b
+\begin{con}
+$1
+\end{con}$0
+endsnippet
+
+snippet fact "Fact" b
+\begin{fact}
+$1
+\end{fact}$0
+endsnippet
+
+snippet obs "Observaation" b
+\begin{obs}
+$1
+\end{obs}$0
+endsnippet
+
+snippet defn "Definition" b
+\begin{defn}
+$1
+\end{defn}$0
+endsnippet
+
+snippet exr "Exercise" b
+\begin{exr}
+$1
+\end{exr}$0
+endsnippet
+
+snippet sol "Solution" b
+\begin{sol}
+$1
+\end{sol}$0
+endsnippet
+
+snippet exm "Example" b
+\begin{exm}
+$1
+\end{exm}$0
+endsnippet
+
+snippet cexm "Counterexample" b
+\begin{cexm}
+$1
+\end{cexm}$0
+endsnippet
+
+snippet wrn "Warning" b
+\begin{wrn}
+$1
+\end{wrn}$0
+endsnippet
+
+snippet qn "Question" b
+\begin{qn}
+$1
+\end{qn}$0
+endsnippet
+
+snippet clm "Claim" b
+\begin{clm}
+$1
+\end{clm}$0
+endsnippet
+
+snippet rmk "Remark" b
+\begin{rmk}
+$1
+\end{rmk}$0
+endsnippet
+
+snippet prop "Proposition" b
+\begin{document}
+$1
+\end{document}
+endsnippet
+
+snippet verbatim "Verbatim" b
+\begin{verbatim}
+$1
+\end{verbatim}$0
+endsnippet
+
+snippet cd "Small comm diag" b
+\begin{cd}
+$1
+\end{cd}$0
+endsnippet
+
+snippet tikzcd "Large comm diag" b
+\begin{tikzcd}
+$1
+\end{tikzcd}$0
+endsnippet

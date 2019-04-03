@@ -86,9 +86,10 @@ autocmd FileType tex setlocal shiftwidth=0
 " let g:vimtex_view_method='zathura'
 let g:vimtex_view_method='skim'
 
-"" Turn some commands into symbols (e.g. \in, \Delta, ...)
-set conceallevel=1
-let g:tex_conceal='abdmg'
+" Turn some commands into symbols (e.g. \in, \Delta, ...) (off because of weird line
+" spacing)
+" set conceallevel=1
+" let g:tex_conceal='abdmg'
 
 " turn off default folding
 let g:tex_fold_enabled = 0
