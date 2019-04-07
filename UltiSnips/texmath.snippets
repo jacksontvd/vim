@@ -71,7 +71,18 @@ snippet "" "double quotes" iA
 \`\`$1''$0
 endsnippet
 
-snippet doc "preample" b
+snippet doc "preamble" b
+\documentclass{amsart}
+\usepackage{master}
+\begin{document}
+\title{$1}
+\author{$2}
+\maketitle
+$0
+\end{document}
+endsnippet
+
+snippet notes "notes preamble" b
 \documentclass{amsart}
 \usepackage{master}
 \begin{document}
@@ -234,12 +245,6 @@ $1
 \end{rmk}$0
 endsnippet
 
-snippet prop "Proposition" b
-\begin{document}
-$1
-\end{document}
-endsnippet
-
 snippet verbatim "Verbatim" b
 \begin{verbatim}
 $1
@@ -256,4 +261,22 @@ snippet tikzcd "Large comm diag" b
 \begin{tikzcd}
 $1
 \end{tikzcd}$0
+endsnippet
+
+snippet pmatrix "Matrix with parentheses" b
+\begin{pmatrix}
+$1
+\end{pmatrix}$0
+endsnippet
+
+snippet bmatrix "Matrix with brackets" b
+\begin{bmatrix}
+$1
+\end{bmatrix}$0
+endsnippet
+
+snippet matrix "Naked Matrix" b
+\begin{matrix}
+$1
+\end{matrix}$0
 endsnippet
