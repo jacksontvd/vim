@@ -63,12 +63,24 @@ snippet $$ "math environment" iA
 $$1$$0
 endsnippet
 
-snippet '' "single quote" iA
+snippet `` "single quote" iA
 \`$1'$0
 endsnippet
 
 snippet "" "double quotes" iA
 \`\`$1''$0
+endsnippet
+
+snippet inte "topological interior" w
+\interior{$1}$0
+endsnippet
+
+snippet clos "topological closure" w
+\closure{$1}$0
+endsnippet
+
+snippet ol "topological closure" w
+\oline{$1}$0
 endsnippet
 
 snippet doc "preamble" b
@@ -77,6 +89,7 @@ snippet doc "preamble" b
 \begin{document}
 \title{$1}
 \author{$2}
+\date{$3}
 \maketitle
 $0
 \end{document}
@@ -88,6 +101,7 @@ snippet notes "notes preamble" b
 \begin{document}
 \title{Lecture $1\\\ Math $2}
 \author{Lecture: Professor $3\\\ Notes: Jackson Van Dyke}
+\date{$4}
 \maketitle
 $0
 \end{document}
@@ -275,8 +289,58 @@ $1
 \end{bmatrix}$0
 endsnippet
 
+snippet Bmatrix "Matrix with curly brackets" b
+\begin{Bmatrix}
+$1
+\end{Bmatrix}$0
+endsnippet
+
 snippet matrix "Naked Matrix" b
 \begin{matrix}
 $1
 \end{matrix}$0
 endsnippet
+
+snippet pmat "Matrix with parentheses" b
+\begin{pmatrix}
+$1
+\end{pmatrix}$0
+endsnippet
+
+snippet bmat "Matrix with brackets" b
+\begin{bmatrix}
+$1
+\end{bmatrix}$0
+endsnippet
+
+snippet Bmat "Matrix with curly brackets" b
+\begin{Bmatrix}
+$1
+\end{Bmatrix}$0
+endsnippet
+
+snippet mat "Naked Matrix" b
+\begin{matrix}
+$1
+\end{matrix}$0
+endsnippet
+
+snippet enume "Enumerate" b
+\begin{enumerate}
+\item $1
+\end{enumerate}$0
+endsnippet
+
+snippet enumi "Enumerate with \iii labels" b
+\begin{enumerate}[label = (\iii)]
+\item $1
+\end{enumerate}$0
+endsnippet
+
+snippet itemi "Itemize" b
+\begin{itemize}
+\item $1
+\end{itemize}$0
+endsnippet
+
+
