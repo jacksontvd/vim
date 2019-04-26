@@ -71,16 +71,20 @@ snippet "" "double quotes" iA
 \`\`$1''$0
 endsnippet
 
-snippet inte "topological interior" w
+snippet \inte "topological interior" w
 \interior{$1}$0
 endsnippet
 
-snippet clos "topological closure" w
+snippet \clos "topological closure" w
 \closure{$1}$0
 endsnippet
 
-snippet ol "topological closure" w
+snippet \ol "topological closure" w
 \oline{$1}$0
+endsnippet
+
+snippet pt "Bullet for complex" w
+\point
 endsnippet
 
 snippet doc "preamble" b
@@ -343,4 +347,20 @@ snippet itemi "Itemize" b
 \end{itemize}$0
 endsnippet
 
+snippet cases "Cases" b
+\begin{cases}
+$1
+\end{cases}$0
+endsnippet
 
+snippet figure "Figure" b
+\begin{figure}
+$1
+\end{figure}$0
+endsnippet
+
+snippet overlay "Overlay" b
+\begin{overlay}
+\pict{$1}{$2}
+\end{overlay}$0
+endsnippet

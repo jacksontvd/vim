@@ -31,9 +31,15 @@ set number
 " show command in bottom bar
 set showcmd
 
-" automatically wrap text (as closely as possible) when 90 characters are in 1
-" line
-set tw=90
+" If filetype is LaTeX:
+" automatically wrap text (as closely as possible) when 90 characters are in 1  line
+autocmd FileType tex call Tex_config()
+  function Tex_config()
+    set tw=90
+  endfunction
+" If filetype is .txt:
+" automatically wrap text (as closely as possible) when 90 characters are in 1  line
+autocmd bufreadpre *.txt setlocal tw=90
 
 " indent lines under indented lines
 set autoindent
