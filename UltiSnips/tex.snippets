@@ -52,7 +52,7 @@ endsnippet
 
 snippet abs "abstract environment" b
 \begin{abstract}
-	$0
+$0
 \end{abstract}
 endsnippet
 
@@ -72,44 +72,28 @@ endsnippet
 
 snippet table "Table environment" b
 \begin{table}[${1:htpb}]
-	\centering
-	\caption{${2:caption}}
-	\label{tab:${3:label}}
-	\begin{${4:t}${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${5:c}}
-	$0${5/(?<=.)(c|l|r)|./(?1: & )/g}
-	\end{$4${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+\centering
+\caption{${2:caption}}
+\label{tab:${3:label}}
+\begin{${4:t}${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${5:c}}
+$0${5/(?<=.)(c|l|r)|./(?1: & )/g}
+\end{$4${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
 \end{table}
 endsnippet
 
 snippet fig "Figure environment" b
 \begin{figure}[${2:htpb}]
-	\centering
-	\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
-	\caption{${4/(\w+)\.\w+/\u$1/}$0}
-	\label{fig:${4/(\w+)\.\w+/$1/}}
+\centering
+\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
+\caption{${4/(\w+)\.\w+/\u$1/}$0}
+\label{fig:${4/(\w+)\.\w+/$1/}}
 \end{figure}
-endsnippet
-
-snippet enum "Enumerate" b
-\begin{enumerate}
-	\item $0
-\end{enumerate}
-endsnippet
-
-snippet item "Itemize" b
-\begin{itemize}
-	\item $0
-\end{itemize}
 endsnippet
 
 snippet desc "Description" b
 \begin{description}
-	\item[$1] $0
+\item[$1] $0
 \end{description}
-endsnippet
-
-snippet it "Individual item" b
-\item $0
 endsnippet
 
 snippet part "Part" b
@@ -192,8 +176,6 @@ snippet acl "Acroynm expanded" b
 \acl{${1:acronym}}
 $0
 endsnippet
-
-
 
 snippet ni "Non-indented paragraph" b
 \noindent

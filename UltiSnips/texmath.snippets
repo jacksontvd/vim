@@ -30,7 +30,20 @@ def math():
         return False
 endglobal
 
-
+# Hyperlinks
+snippet url
+\\url{${1}} ${0}
+endsnippet
+snippet href
+\\href{${1}}{${2}} ${0}
+endsnippet
+# URL from Clipboard.
+snippet urlc
+\\url{`@+`} ${0}
+endsnippet
+snippet hrefc
+\\href{`@+`}{${1}} ${0}
+endsnippet
 
 # this allows one to put mathematical symbols in section titles (it takes two arguments,
 # the first of which is math, the second of which is the plaintext replacment)
@@ -71,19 +84,24 @@ snippet "" "double quotes" iA
 \`\`$1''$0
 endsnippet
 
-snippet \inte "topological interior" w
+snippet inte "topological interior" w
 \interior{$1}$0
 endsnippet
 
-snippet \clos "topological closure" w
+snippet clos "closure" w
 \closure{$1}$0
 endsnippet
 
-snippet \ol "topological closure" w
+snippet tclos "topological closure" w
+\tclosure{$1}$0
+endsnippet
+
+snippet ol "overline" w
 \oline{$1}$0
 endsnippet
 
-snippet pt "Bullet for complex" w
+# bullet symbol (for chain complex notation)
+snippet pt "\point" w
 \point
 endsnippet
 
@@ -144,6 +162,12 @@ endsnippet
 # environment snippets:
 
 snippet eqn "Equation" b
+\begin{equation}
+$1
+\end{equation}$0
+endsnippet
+
+snippet eq "Equation" b
 \begin{equation}
 $1
 \end{equation}$0
@@ -329,22 +353,44 @@ $1
 \end{matrix}$0
 endsnippet
 
-snippet enume "Enumerate" b
+snippet enum "Enumerate" b
 \begin{enumerate}
 \item $1
 \end{enumerate}$0
 endsnippet
 
-snippet enumi "Enumerate with \iii labels" b
+snippet enumi "Enumerate with (\iii) labels" b
 \begin{enumerate}[label = (\iii)]
 \item $1
 \end{enumerate}$0
 endsnippet
 
-snippet itemi "Itemize" b
+snippet enumn "Enumerate with \numbers labels" b
+\begin{enumerate}[label = \numbers.]
+\item $1
+\end{enumerate}$0
+endsnippet
+
+snippet enuma "Enumerate with (\abc) labels" b
+\begin{enumerate}[label = (\abc)]
+\item $1
+\end{enumerate}$0
+endsnippet
+
+snippet ite "Itemize" b
 \begin{itemize}
 \item $1
 \end{itemize}$0
+endsnippet
+
+snippet item "Itemize" b
+\begin{itemize}
+\item $1
+\end{itemize}$0
+endsnippet
+
+snippet it "Individual item" b
+\item $0
 endsnippet
 
 snippet cases "Cases" b
