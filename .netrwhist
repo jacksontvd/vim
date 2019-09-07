@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/jacksontvd/Documents/misc/grad_school/applications/fall_classes'
-let g:netrw_dirhist_2='/Users/jacksontvd/Documents/misc/math_cv'
-let g:netrw_dirhist_3='/Users/jacksontvd/Documents/misc/grad_school/applications/uw_seattle'
-let g:netrw_dirhist_4='/Users/jacksontvd/Documents/misc/what_did_i_learn'
-let g:netrw_dirhist_5='/Users/jacksontvd/Documents/foundations/model_theory/229/notes'
-let g:netrw_dirhist_6='/Users/jacksontvd/Documents/geometry_topology/thesis/components'
-let g:netrw_dirhist_7='/Users/jacksontvd/Documents/philosophy/formalizing'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/jacksontvd/Documents/recoltes_et_semailles/ReS'

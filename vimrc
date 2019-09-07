@@ -98,29 +98,31 @@ let g:vimtex_view_method='skim'
 " let g:tex_conceal='abdmg'
 
 " turn on and configure default vimtex folding
+" To do custom folds (i.e. not associated to an environment etc. use e.g.
+"  % Fakesubsection
 " (there are alternative packages, and my config for one of those is commented
 " out below this)
-set foldmethod=expr
+let g:tex_fold_enabled = 0
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_types = {
         \ 'preamble' : {'enabled':1},
         \ 'comments' : {'enabled' : 1},
         \ 'envs' : {
-        \   'blacklist' : [],   
-        \   'whitelist' : [],   
+        \   'blacklist' : [],
+        \   'whitelist' : [],
         \ },
         \ 'env_options' : {},
         \ 'markers' : {},
         \ 'sections' : {
         \   'parse_levels' : 1,
-        \   'sections' : [      
+        \   'sections' : [
         \     'part',
         \     'chapter',
         \     'section',
         \     'subsection',
         \     'subsubsection',
         \   ],
-        \   'parts' : [         
+        \   'parts' : [
         \     'appendix',
         \     'frontmatter',
         \     'mainmatter',
@@ -128,6 +130,7 @@ let g:vimtex_fold_types = {
         \   ],
         \ }
         \}
+let g:vimtex_fold_manual = 1
 
 " allow special package (vim-tex-fold-master) to fold. 
 " za folds the fold the cursor is in, zx folds all others (i.e. to fold all go to top and
@@ -140,7 +143,7 @@ let g:vimtex_fold_types = {
 " let g:tex_fold_sec_char = '>'
 
 " customize which LaTeX environments to fold
-" let g:tex_fold_additional_envs = ['largebox','enumerate','table','tabular','tikz','overlay','cd','verbatim','comment','environment','center','solution','question','minipage','exm','rmk','defn','clm','eq','gather','align','figure','subfigure','table','thebibliography','keywords','abstract','titlepage','exr','Proof','proof','sol','feynman','matrix','pmat','bmat']
+" let g:tex_fold_additional_envs = ['largebox','enumerate','table','tabular','tikz','exr','overlay','cd','verbatim','comment','environment','center','solution','question','minipage','exm','rmk','defn','clm','eq','gather','align','figure','subfigure','table','thebibliography','keywords','abstract','titlepage','exr','Proof','proof','sol','feynman','matrix','pmat','bmat']
 " let g:Tex_FoldedSections='bibliography,part,chapter,section,subsection,subsubsection,paragraph,solution,feynman'
 
 "enable spell check (press zg (zug) over selected word to add to (remove from)  dictionary)
