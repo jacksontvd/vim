@@ -117,6 +117,11 @@ $0
 \end{document}
 endsnippet
 
+snippet not "short notes preamble" b
+\marginnote{Lecture $1; $2}
+$0
+endsnippet
+
 snippet notes "notes preamble" b
 \documentclass{amsart}
 \usepackage{master}
@@ -128,6 +133,22 @@ snippet notes "notes preamble" b
 $0
 \end{document}
 endsnippet
+
+snippet ass "Assignment preamble" b
+\documentclass{amsart}
+\usepackage{master}
+\showfalse
+\showtrue
+\usepackage{assignment}
+\begin{document}
+\title{$1}
+\author{$2}
+\date{$3}
+\maketitle
+$0
+\end{document}
+endsnippet
+
 
 # automatic subscript
 context "math()"
