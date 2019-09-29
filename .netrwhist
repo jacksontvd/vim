@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/jacksontvd/Documents/recoltes_et_semailles/ReS'
 let g:netrw_dirhist_2='/Users/jacksontvd/Documents/freya/OPTIMIZATION/optimization/data_master/U236nf'
+let g:netrw_dirhist_3='/Users/jacksontvd/Documents/freya/OPTIMIZATION/paper1'
