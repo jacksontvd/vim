@@ -88,6 +88,17 @@ let g:tex_flavor = "latex"
 " disable mesy latex indentations
 autocmd FileType tex setlocal shiftwidth=0 
 
+let g:vimtex_compiler_latexmk = {
+        \ 'executable' : 'latexmk',
+        \ 'options' : [
+        \   '-xelatex',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}
+
+
 " PDF display in zathura
 " let g:vimtex_view_method='zathura'
 let g:vimtex_view_method='skim'
