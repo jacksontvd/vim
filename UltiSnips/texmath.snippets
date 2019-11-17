@@ -122,6 +122,21 @@ snippet not "short notes preamble" b
 $0
 endsnippet
 
+snippet let "Letter Template" b
+\documentclass{letter}
+\signature{$1}
+\address{$2}
+\begin{document}
+\begin{letter}{$3}
+\opening{Dear $4}
+$0
+\closing{Sincerely,}
+% \ps{P.S. Here goes your ps.}
+% \encl{Enclosures.}
+\end{letter}
+\end{document}
+endsnippet
+
 snippet notes "notes preamble" b
 \documentclass{amsart}
 \usepackage{master}
