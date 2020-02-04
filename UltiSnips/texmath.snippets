@@ -72,6 +72,10 @@ snippet [[ "Square Brackets" iA
 \left[$1\right]$0
 endsnippet
 
+snippet iff "If and only if" i
+if and only if
+endsnippet
+
 snippet $$ "math environment" iA
 $$1$$0
 endsnippet
@@ -209,18 +213,22 @@ $1
 \end{multline}$0
 endsnippet
 
-
-
-snippet eq "Equation" b
-\begin{equation}
+snippet eq "No label equation" b
+\begin{equation*}
 $1
-\end{equation}$0
+\end{equation*}$0
 endsnippet
 
 snippet equation "Equation" b
 \begin{equation}
 $1
 \end{equation}$0
+endsnippet
+
+snippet al "no label align" b
+\begin{align*}
+$1
+\end{align*}$0
 endsnippet
 
 snippet align "align" b

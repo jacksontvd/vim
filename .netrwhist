@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/jacksontvd/Documents/recoltes_et_semailles/ReS'
 let g:netrw_dirhist_2='/Users/jacksontvd/Documents/freya/OPTIMIZATION/optimization/data_master/U236nf'
 let g:netrw_dirhist_3='/Users/jacksontvd/Documents/freya/OPTIMIZATION/paper1'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/Users/jacksontvd/Documents/_archive_/berkeley_courses/26
 let g:netrw_dirhist_5='/Users/jacksontvd/Documents/_archive_'
 let g:netrw_dirhist_6='/Users/jacksontvd/Documents'
 let g:netrw_dirhist_7='/Users/jacksontvd/Documents/misc/reference'
+let g:netrw_dirhist_8='/Users/jacksontvd/Documents/_misc_/letters_of_rec'
