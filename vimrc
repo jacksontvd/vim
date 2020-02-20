@@ -159,7 +159,7 @@ let g:vimtex_fold_manual = 1
 
 "enable spell check (press zg (zug) over selected word to add to (remove from)  dictionary)
 " also, if you press control-p, it makes a guess for the most recent mistake.
-setlocal spell
+set spell
 set spelllang=en_gb
 inoremap <C-p> <c-g>u<Esc>[s1z=`]a<c-g>u
 

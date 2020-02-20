@@ -56,6 +56,14 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
+snippet mb "mathbf" i
+\mathbf{$1}$0
+endsnippet
+
+snippet bs "boldsymbol" i
+\boldsymbol{$1}$0
+endsnippet
+
 snippet (( "Parentheses" iA
 \left($1\right)$0
 endsnippet
@@ -72,8 +80,24 @@ snippet [[ "Square Brackets" iA
 \left[$1\right]$0
 endsnippet
 
+snippet irrep "irreducible representation" iA
+irreducible representation
+endsnippet
+
+snippet Irrep "Irreducible representation" iA
+Irreducible representation
+endsnippet
+
 snippet iff "If and only if" i
 if and only if
+endsnippet
+
+snippet ses "Short exact sequence" i
+short exact sequence
+endsnippet
+
+snippet les "Long exact sequence" i
+long exact sequence
 endsnippet
 
 snippet $$ "math environment" iA
@@ -109,7 +133,7 @@ snippet pt "\point" w
 \point
 endsnippet
 
-snippet doc "preamble" b
+snippet doc "generic preamble" b
 \documentclass{amsart}
 \usepackage{master}
 \begin{document}
@@ -121,7 +145,20 @@ $0
 \end{document}
 endsnippet
 
-snippet not "short notes preamble" b
+snippet not "notes preamble" b
+\documentclass{amsart}
+\usepackage{master}
+\begin{document}
+\title{$1}
+\author{$2}
+\date{$3}
+\thanks{Notes by: Jackson Van Dyke, all errors introduced are my own.}
+\maketitle
+$0
+\end{document}
+endsnippet
+
+snippet lec "short notes preamble" b
 \marginnote{Lecture $1; $2}
 $0
 endsnippet
@@ -231,6 +268,12 @@ $1
 \end{align*}$0
 endsnippet
 
+snippet ali "align" b
+\begin{align}
+$1
+\end{align}$0
+endsnippet
+
 snippet align "align" b
 \begin{align}
 $1
@@ -337,6 +380,18 @@ snippet clm "Claim" b
 \begin{clm}
 $1
 \end{clm}$0
+endsnippet
+
+snippet cclm "Custom Claim" b
+\begin{custom_clm}
+$1
+\end{custom_clm}$0
+endsnippet
+
+snippet pclm "Proof Claim" b
+\begin{proof_clm}
+$1
+\end{proof_clm}$0
 endsnippet
 
 snippet rmk "Remark" b
