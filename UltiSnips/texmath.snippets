@@ -55,6 +55,26 @@ snippet :: "Colon (\colon instead of :)" iA
 \colon
 endsnippet
 
+snippet lto "labeled arrow" i
+\xrightarrow{$1}$0
+endsnippet
+
+snippet inj "Injection" i
+\hookrightarrow$0
+endsnippet
+
+snippet injl "Injection with label" i
+\xhookrightarrow{$1}$0
+endsnippet
+
+snippet surj "Surjection" i
+\twoheadrightarrow$0
+endsnippet
+
+snippet surjl "Surjection with label" i
+\twoheadrightarrow{$1}$0
+endsnippet
+
 snippet tt "text" i
 \text{$1}$0
 endsnippet
@@ -72,8 +92,36 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
+snippet barr "Wide bar" iA
+\\overline{$1}$0
+endsnippet
+
 snippet mb "mathbf" i
 \mathbf{$1}$0
+endsnippet
+
+snippet sub "subset" i
+\subset
+endsnippet
+
+snippet subeq "subseteq" i
+\subseteq
+endsnippet
+
+snippet subneq "subsetneq" i
+\subsetneq
+endsnippet
+
+snippet sup "supset" i
+\supset
+endsnippet
+
+snippet supeq "supseteq" i
+\supseteq
+endsnippet
+
+snippet supneq "supsetneq" i
+\supsetneq
 endsnippet
 
 snippet bs "boldsymbol" i
@@ -392,7 +440,7 @@ $1
 \end{fact}$0
 endsnippet
 
-snippet obs "Observaation" b
+snippet obse "Observaation" b
 \begin{obs}
 $1
 \end{obs}$0
@@ -495,14 +543,69 @@ $1
 endsnippet
 
 snippet graph "tikzpicture graph template" b
-\begin{tikzpicture}[scale=1$1,baseline]
-%%% vertices
-% \draw[fill=black] (0,0) circle (2pt);
-% \draw[fill=black] (1,0) circle (2pt);
+\begin{tikzpicture}
+[nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
+linedecorate/.style={-},%
+scale=1,baseline]
+%% vertices
+\foreach \nodename/\x/\y in {
+1/0/0,
+2/1/0
+}{
+\node (\nodename) at (\x,\y) [nodedecorate] {};
+}
+%%% alternative vertices
+% \draw[fill=black,color=black] (0,0) circle (2pt);
+% \draw[fill=black,color=black] (1,0) circle (2pt);
+%%% edges
+\path
+\foreach \startnode/\endnode in {
+1/2}
+{
+(\startnode) edge[linedecorate] node {} (\endnode)
+};
+%%% alternative edges
+% \draw (0,0) -- (1,0);
+% \path  (0,0)   edge[left loop] (0,0);
+% \path  (0,0)   edge[right loop] (0,0);
+% \path  (0,0)   edge[up loop] (0,0);
+% \path  (0,0)   edge[down loop] (0,0);
+% \path  (0,0)   edge[bend right] (1,0);
+% \path  (0,0)   edge[bend left] (1,0);
 %%% vertex labels
 % \node at (0,-0.5) {1};
-% \node at (1,-0.5) {2};
+\end{tikzpicture}$0
+endsnippet
+
+snippet hexagon "Hexagonal graph" b
+\begin{tikzpicture}
+[nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
+linedecorate/.style={-},%
+scale=1,baseline]
+%% vertices
+\foreach \nodename/\x/\y in {
+1/0.9510/0.3090, 
+2/0/1, 
+3/-0.9510/0.3090,
+4/-0.5877/-0.8090, 
+5/0.5877/-0.8090, 
+6/0/0
+}{
+\node (\nodename) at (\x,\y) [nodedecorate] {};
+}
+%%% alternative vertices
+% \draw[fill=black] (0,0) circle (2pt);
+% \draw[fill=black] (1,0) circle (2pt);
 %%% edges
+\path
+\foreach \startnode/\endnode in {
+1/5, 1/6, 2/3, 2/6, 3/4, 3/6,
+4/5, 4/6, 5/6,
+1/2}
+{
+(\startnode) edge[linedecorate] node {} (\endnode)
+};
+%%% alternative edges
 % \draw (0,0) -- (1,0);
 % \path  (0,0)   edge[left loop] (0,0);
 % \path  (0,0)   edge[right loop] (0,0);
@@ -574,25 +677,31 @@ snippet enum "Enumerate" b
 endsnippet
 
 snippet enumi "Enumerate with (\iii) labels" b
-\begin{enumerate}[label = (\iii)]
+\begin{enumerate}[label = (\roman*)]
+\item $1
+\end{enumerate}$0
+endsnippet
+
+snippet enumI "Enumerate with (\III) labels" b
+\begin{enumerate}[label = (\Roman*)]
 \item $1
 \end{enumerate}$0
 endsnippet
 
 snippet enumc "Enumerate with 'Case (numbers)' labels" b
-\begin{enumerate}[label = Case (\numbers)]
+\begin{enumerate}[label = Case (\arabic*)]
 \item $1
 \end{enumerate}$0
 endsnippet
 
 snippet enumn "Enumerate with \numbers labels" b
-\begin{enumerate}[label = \numbers.]
+\begin{enumerate}[label = \arabic*.]
 \item $1
 \end{enumerate}$0
 endsnippet
 
 snippet enuma "Enumerate with (\abc) labels" b
-\begin{enumerate}[label = (\abc)]
+\begin{enumerate}[label = (\alph*)]
 \item $1
 \end{enumerate}$0
 endsnippet
@@ -628,6 +737,7 @@ endsnippet
 snippet overlay "Overlay" b
 \begin{overlay}
 \pict{$1}{$2}
+\toptext{$3}{$4}
 \end{overlay}$0
 endsnippet
 

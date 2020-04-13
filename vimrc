@@ -88,10 +88,17 @@ let g:tex_flavor = "latex"
 " disable mesy latex indentations
 autocmd FileType tex setlocal shiftwidth=0 
 
+" setup for syncing with pdf viewer, as well as my choice out of:
+" XeLaTeX:
+        " \   '-xelatex',
+" LuaLaTeX:
+        " \   '-lualatex',
+" PDFLaTeX:
+        " \   '-pdf',
 let g:vimtex_compiler_latexmk = {
         \ 'executable' : 'latexmk',
         \ 'options' : [
-        \   '-xelatex',
+        \   '-pdf',
         \   '-file-line-error',
         \   '-synctex=1',
         \   '-interaction=nonstopmode',
