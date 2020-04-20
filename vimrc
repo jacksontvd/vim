@@ -187,6 +187,13 @@ map! <C-A>      &<ESC>o
 map   :W	:w
 map   :X	:x
 
+" map :master to the path to my macros
+map   :master	:tabnew ~/Library/texmf/tex/latex/master.sty
+map   :macros	:tabnew ~/Library/texmf/tex/latex/master.sty
+
+" map :bib to the path to my references
+map   :bib	:tabnew ~/Library/texmf/bibtex/bib/
+
 map   :col	:%!column -t
 
 " map double equals to single alignment

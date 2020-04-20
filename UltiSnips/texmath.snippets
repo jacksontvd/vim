@@ -92,36 +92,48 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
-snippet barr "Wide bar" iA
+snippet \barr "Wide bar" iA
 \\overline{$1}$0
+endsnippet
+
+snippet \ttilde "Wide tilde" iA
+\\widetilde{$1}$0
 endsnippet
 
 snippet mb "mathbf" i
 \mathbf{$1}$0
 endsnippet
 
-snippet sub "subset" i
+snippet \sub "subset" i
 \subset
 endsnippet
 
-snippet subeq "subseteq" i
+snippet \subeq "subseteq" i
 \subseteq
 endsnippet
 
-snippet subneq "subsetneq" i
+snippet \subneq "subsetneq" i
 \subsetneq
 endsnippet
 
-snippet sup "supset" i
+snippet \sup "supset" i
 \supset
 endsnippet
 
-snippet supeq "supseteq" i
+snippet \supeq "supseteq" i
 \supseteq
 endsnippet
 
-snippet supneq "supsetneq" i
+snippet \supneq "supsetneq" i
 \supsetneq
+endsnippet
+
+snippet \ext "ext -> eedge" i
+\wedge
+endsnippet
+
+snippet \bext "bext -> bigwedge" i
+\bigwedge
 endsnippet
 
 snippet bs "boldsymbol" i
@@ -541,6 +553,33 @@ snippet tikzcd "Large comm diag" b
 $1
 \end{tikzcd}$0
 endsnippet
+
+snippet tikz "tikzpicture template" b
+\begin{tikzpicture}
+[nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
+linedecorate/.style={-},%
+scale=1,baseline]
+%%% vertices
+% \draw[fill=black,color=black] (0,0) circle (2pt);
+% \draw[fill=black,color=black] (1,0) circle (2pt);
+\node (A) at (0,0) [nodedecorate] {};
+\node (B) at (1,0) [nodedecorate] {};
+%%% edges
+\path (A) edge[linedecorate] node {} (B);
+%%% alternative edges
+% \draw (0,0) -- (1,0);
+% \path  (0,0)   edge[left loop] (0,0);
+% \path  (0,0)   edge[right loop] (0,0);
+% \path  (0,0)   edge[up loop] (0,0);
+% \path  (0,0)   edge[down loop] (0,0);
+% \path  (0,0)   edge[bend right] (1,0);
+% \path  (0,0)   edge[bend left] (1,0);
+%%% vertex labels
+% \node at (0,-0.5) {1};
+\end{tikzpicture}$0
+endsnippet
+
+
 
 snippet graph "tikzpicture graph template" b
 \begin{tikzpicture}
