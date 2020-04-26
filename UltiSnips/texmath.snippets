@@ -616,6 +616,13 @@ scale=1,baseline]
 \end{tikzpicture}$0
 endsnippet
 
+snippet circle "Tikzpicture with circle"
+\begin{tikzpicture}[scale=1,baseline=-2pt]
+\draw[fill=none,color=black] (0,0) circle (0.5);
+\draw[fill=black,color=black] (0,0.5) circle (2pt);
+\end{tikzpicture}$0
+endsnippet
+
 snippet hexagon "Hexagonal graph" b
 \begin{tikzpicture}
 [nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
