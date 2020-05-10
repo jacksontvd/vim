@@ -587,7 +587,27 @@ scale=1,baseline]
 \end{tikzpicture}$0
 endsnippet
 
+snippet braid "tikzpicture Braid template" b
+\begin{tikzpicture}[baseline = \lineheight]
+\braid[braid colour=red,strands=3,braid start={(0,0)}]
+{\sigma_1 \sigma_2 \sigma_1^{-1}}
+\node[font=\Huge] at (4.5,-1.5) {\(=\)};
+\braid[strands=3,braid start={(5,0)}]
+{\sigma_2 \sigma_1 \sigma_2}
+\end{tikzpicture}
+endsnippet
 
+snippet knot "tikzpicture knot template" b
+\begin{tikzpicture}[scale=1/4,baseline=-2pt]
+\begin{knot}[
+%  draft mode=crossings,
+flip crossing=2
+]
+\strand[black] (1,0) circle[radius=2cm];
+\strand[black] (-1,0) circle[radius=2cm];
+\end{knot}
+\end{tikzpicture}
+endsnippet
 
 snippet graph "tikzpicture graph template" b
 \begin{tikzpicture}
