@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/jacksontvd/Documents/research_notes/cat_ag'
-let g:netrw_dirhist_2='/Users/jacksontvd/Documents/research_notes/factorization_algebras'
-let g:netrw_dirhist_3='/Users/jacksontvd/Documents/notes/cat_ag'
-let g:netrw_dirhist_4='/Users/jacksontvd/Desktop'
-let g:netrw_dirhist_5='/Users/jacksontvd'
-let g:netrw_dirhist_6='/Users/jacksontvd/Library'
-let g:netrw_dirhist_7='/Users/jacksontvd/Library/texmf/bibtex/bib'
-let g:netrw_dirhist_8='/Users/jacksontvd/Documents/notes/factorization_algebras'
-let g:netrw_dirhist_9='/Users/jacksontvd/Documents/notes/cat_rt'
+let g:netrw_dirhist_cnt =0
