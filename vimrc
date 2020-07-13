@@ -188,8 +188,9 @@ map   :W	:w
 map   :X	:x
 
 " map :master to the path to my macros
-map   :master	:tabnew ~/Library/texmf/tex/latex/master.sty
-map   :macros	:tabnew ~/Library/texmf/tex/latex/master.sty
+map   :mas  	:tabnew ~/Library/texmf/tex/latex/master_SMALL.sty
+map   :master	:tabnew ~/Library/texmf/tex/latex/master_SMALL.sty
+map   :macros	:tabnew ~/Library/texmf/tex/latex/master_SMALL.sty
 
 " map :bib to the path to my references
 map   :bib	:tabnew ~/Library/texmf/bibtex/bib/

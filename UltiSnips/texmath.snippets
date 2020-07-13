@@ -287,6 +287,45 @@ $0
 \end{document}
 endsnippet
 
+snippet beam "beamer template" b
+\documentclass{beamer}
+\RequirePackage{etex}
+\usepackage{master_SMALL}
+\usepackage{master_YES_beamer}
+\usepackage{lmodern}
+\setbeamertemplate{theorems}[numbered]
+\usetheme{Madrid}
+\usecolortheme{wolverine}
+\AtBeginSubsection[]
+{
+\begin{frame}<beamer>
+\frametitle{We are entering the subsection:}
+\tableofcontents[
+  currentsection,
+  sectionstyle=show/shaded,
+  subsectionstyle=shaded/show/shaded,
+]
+\end{frame}
+}
+\bibliographystyle{amsalpha}
+\title{$1}
+\author{Jackson Van Dyke$2}
+\date{\today$3}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Table of contents}
+\tableofcontents
+\end{frame}
+
+$0
+\end{document}
+endsnippet
+
 snippet notes "notes preamble" b
 \documentclass{amsart}
 \usepackage{master}
@@ -294,7 +333,7 @@ snippet notes "notes preamble" b
 \title{Lecture $1\\\ $2}
 \author{Lecture: $3}
 \date{$4; Notes by Jackson Van Dyke. All errors introduced are my own.}
-\maketitle
+maketitle
 $0
 \end{document}
 endsnippet
@@ -381,6 +420,12 @@ snippet ali "align" b
 \begin{align}
 $1
 \end{align}$0
+endsnippet
+
+snippet frame "Beamer Frame" b
+\begin{frame}
+$1
+\end{frame}$0
 endsnippet
 
 snippet align "align" b
