@@ -290,9 +290,12 @@ endsnippet
 snippet beam "beamer template" b
 \documentclass{beamer}
 \RequirePackage{etex}
+\usepackage{hyperref}
+\bibliographystyle{amsalpha}
 \usepackage{master_SMALL}
-\usepackage{master_YES_beamer}
 \usepackage{lmodern}
+\usepackage{wasysym}
+
 \setbeamertemplate{theorems}[numbered]
 \usetheme{Madrid}
 \usecolortheme{wolverine}
@@ -307,7 +310,7 @@ snippet beam "beamer template" b
 ]
 \end{frame}
 }
-\bibliographystyle{amsalpha}
+
 \title{$1}
 \author{Jackson Van Dyke$2}
 \date{\today$3}

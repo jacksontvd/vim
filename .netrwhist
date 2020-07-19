@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/jacksontvd/Documents/notes/research/liou_wein'
 let g:netrw_dirhist_2='/Users/jacksontvd/Documents/notes/research/rep_theory'
 let g:netrw_dirhist_3='/Users/jacksontvd/Documents/reference/cs'
+let g:netrw_dirhist_4='/Users/jacksontvd/Library/texmf/bibtex/bib'
