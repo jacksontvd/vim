@@ -265,7 +265,7 @@ snippet not "notes preamble" b
 \title{$1}
 \author{$2}
 \date{$3}
-\thanks{Notes by: Jackson Van Dyke, all errors introduced are my own.}
+\thanks{Notes by: Jackson Van Dyke}
 \maketitle
 \tableofcontents
 $0
@@ -663,6 +663,138 @@ flip crossing=2
 \end{tikzpicture}
 endsnippet
 
+snippet circle "Tikzpicture of circle"
+\begin{tikzpicture}[scale=1,baseline=-2pt]
+\draw[fill=none,color=black] (0,0) circle (0.5);
+\draw[fill=black,color=black] (0,0.5) circle (2pt);
+\end{tikzpicture}$0
+endsnippet
+
+snippet arc "tikzpicture of arc" b
+\begin{tikzpicture}[baseline=10]
+\begin{scope}
+\clip (0,0) rectangle (0.7,1);
+\draw (0,0.5) circle(0.5);
+\end{scope}
+\draw[fill=black,color=black] (0,1) circle (2pt);
+\draw[fill=black,color=black] (0,0) circle (2pt);
+\end{tikzpicture}
+endsnippet
+
+snippet zorro "tikzpicture of the mark of zorro bordism" b
+\begin{tikzpicture}[baseline=10]
+\begin{scope}
+\clip (0,0) rectangle (0.6,1);
+\draw (0,0.5) circle(0.5);
+\end{scope}
+\begin{scope}
+\clip (0,0) rectangle (-0.6,-1);
+\draw (0,-0.5) circle (0.5);
+\end{scope}
+\draw[fill=black,color=black] (0,1) circle (2pt);
+\draw[fill=black,color=black] (0,0) circle (2pt);
+\draw[fill=black,color=black] (0,-1) circle (2pt);
+\draw (-2,1) -- (0,1);
+\draw (2,-1) -- (0,-1);
+\draw[fill=black,color=black] (-2,1) circle (2pt);
+\draw[fill=black,color=black] (2,-1) circle (2pt);
+\end{tikzpicture}
+endsnippet
+
+snippet disk "tikpicture of a disk bordism" b
+\begin{tikzpicture}[yscale=0.5,rotate=-90,baseline=-2pt]
+% \begin{tikzpicture}
+% Draw a shaded ball, but clip so only the lower half shows.
+% The arc in the clipping region is the foreground part of the equator
+\begin{scope}
+    \clip(-3,3) -- (-3,0) -- (-2,0) arc (180:360:2cm and 0.6cm) -- (3,0) -- (3,3) -- (-3,3);
+	\draw[fill=gray!60] (0,0) circle (2cm);
+\end{scope}
+% Draw the disc on top of the hemisphere.
+% \shade[inner color=gray, outer color=gray, opacity=0.50] (2,0) arc (0:360:2cm and 0.6cm);
+\shade[inner color=white, outer color=white, opacity=0.80] (2,0) arc (0:360:2cm and 0.6cm);
+% Outline the disk in black
+% \draw[dashed] (2,0) arc (0:180:2cm and 0.6cm);
+\draw (2,0) arc (0:180:2cm and 0.6cm);
+\draw (-2,0) arc (180:360:2cm and 0.6cm);
+% Outline the hemisphere in black
+\draw (2,0) arc (0:180:2cm and 2cm);
+\end{tikzpicture}
+endsnippet
+
+snippet cylinder "tikzpicture of cylinder" b
+\begin{tikzpicture}[baseline=-2]
+  \node[cylinder,draw=black,aspect=0.7,
+  minimum height=60pt,minimum width=20pt,
+  shape border rotate=0,cylinder uses custom fill, cylinder body     
+  fill=gray!60,cylinder end fill=gray!10] (A) {};
+\draw[dashed]
+    let \p1 = ($ (A.after bottom) - (A.before bottom) $),
+        \n1 = {0.5*veclen(\x1,\y1)-\pgflinewidth},
+        \p2 = ($ (A.bottom) - (A.after bottom)!.5!(A.before bottom) $),
+        \n2 = {veclen(\x2,\y2)-\pgflinewidth}
+  in
+    ([xshift=-\pgflinewidth] A.before bottom) arc [start angle=270, delta angle=180,
+    x radius=\n2, y radius=\n1];
+\end{tikzpicture}
+endsnippet
+
+snippet maca "tikzpicture of the macaroni bordism" b
+\begin{tikzpicture}[xscale=-1,baseline = -20]
+\begin{scope}
+\clip (-0.01,-2) rectangle (0.5,0.5);
+\node[cylinder,draw=black,aspect=0.7,
+minimum height=20pt,minimum width=20pt,
+shape border rotate=180,cylinder uses custom fill, cylinder body     
+fill=gray!60,cylinder end fill=gray!10] (A) {};
+\node[cylinder,draw=black,aspect=0.7,
+minimum height=20pt,minimum width=20pt,
+shape border rotate=180,cylinder uses custom fill, cylinder body     
+fill=gray!60,cylinder end fill=gray!10] at (0,-40pt) {};
+\end{scope}
+\begin{scope}
+\clip (0,-2) rectangle (-2,0.5);
+\draw[fill,color=gray!60] (0,-20pt) circle (30pt);
+\draw[fill,color=white] (0,-20pt) circle (10pt);
+\draw[color=black] (0,-20pt) circle (30pt);
+\draw[color=black] (0,-20pt) circle (10pt);
+\end{scope}
+\end{tikzpicture}
+endsnippet
+
+snippet comaca "tikzpicture of the backwards macaroni bordism" b
+\begin{tikzpicture}[baseline=-20]
+\begin{scope}
+\clip (-0.01,-2) rectangle (0.5,0.5);
+\node[cylinder,draw=black,aspect=0.7,
+minimum height=20pt,minimum width=20pt,
+shape border rotate=0,cylinder uses custom fill, cylinder body     
+fill=gray!60,cylinder end fill=gray!10] (A) {};
+\node[cylinder,draw=black,aspect=0.7,
+minimum height=20pt,minimum width=20pt,
+shape border rotate=0,cylinder uses custom fill, cylinder body     
+fill=gray!60,cylinder end fill=gray!10] at (0,-40pt) {};
+\end{scope}
+\begin{scope}
+\clip (0,-2) rectangle (-2,0.5);
+\draw[fill,color=gray!60] (0,-20pt) circle (30pt);
+\draw[fill,color=white] (0,-20pt) circle (10pt);
+\draw[color=black] (0,-20pt) circle (30pt);
+\draw[color=black] (0,-20pt) circle (10pt);
+\end{scope}
+\end{tikzpicture}
+endsnippet
+
+snippet pants "tikzpicture of pair of pants bordism" b
+\begin{tikzpicture}[baseline=-2pt,
+tqft/cobordism/.style={draw},tqft/every boundary component/.style={draw},
+every tqft/.append style={transform shape}]
+\begin{scope}[rotate=-90]
+\pic [draw, tqft/pair of pants,fill=black,fill opacity = 0.3];
+\end{scope}
+\end{tikzpicture}
+endsnippet
+
 snippet graph "tikzpicture graph template" b
 \begin{tikzpicture}
 [nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
@@ -695,13 +827,6 @@ scale=1,baseline]
 % \path  (0,0)   edge[bend left] (1,0);
 %%% vertex labels
 % \node at (0,-0.5) {1};
-\end{tikzpicture}$0
-endsnippet
-
-snippet circle "Tikzpicture with circle"
-\begin{tikzpicture}[scale=1,baseline=-2pt]
-\draw[fill=none,color=black] (0,0) circle (0.5);
-\draw[fill=black,color=black] (0,0.5) circle (2pt);
 \end{tikzpicture}$0
 endsnippet
 
