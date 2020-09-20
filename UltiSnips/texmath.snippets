@@ -265,7 +265,8 @@ snippet not "notes preamble" b
 \title{$1}
 \author{$2}
 \date{$3}
-\thanks{Notes by: Jackson Van Dyke}
+% \thanks{Notes by: Jackson Van Dyke}
+\thanks{Notes by: Jackson Van Dyke; All errors introduced are my own.}
 \maketitle
 \tableofcontents
 $0
@@ -682,7 +683,7 @@ snippet arc "tikzpicture of arc" b
 endsnippet
 
 snippet zorro "tikzpicture of the mark of zorro bordism" b
-\begin{tikzpicture}[baseline=10]
+\begin{tikzpicture}[baseline]
 \begin{scope}
 \clip (0,0) rectangle (0.6,1);
 \draw (0,0.5) circle(0.5);
@@ -698,6 +699,11 @@ snippet zorro "tikzpicture of the mark of zorro bordism" b
 \draw (2,-1) -- (0,-1);
 \draw[fill=black,color=black] (-2,1) circle (2pt);
 \draw[fill=black,color=black] (2,-1) circle (2pt);
+\node at (0,1.3) {$+$};
+\node at (-2,1.3) {$+$};
+\node at (0,0.3) {$-$};
+\node at (0,-0.7) {$+$};
+\node at (2,-0.7) {$+$};
 \end{tikzpicture}
 endsnippet
 
