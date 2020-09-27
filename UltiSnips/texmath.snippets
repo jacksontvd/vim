@@ -250,7 +250,7 @@ snippet doc "generic preamble" b
 \usepackage{master}
 \begin{document}
 \title{$1}
-\author{$2}
+\author{Jackson Van Dyke$2}
 \date{$3}
 \maketitle
 \tableofcontents
@@ -265,8 +265,9 @@ snippet not "notes preamble" b
 \title{$1}
 \author{$2}
 \date{$3}
-% \thanks{Notes by: Jackson Van Dyke}
-\thanks{Notes by: Jackson Van Dyke; All errors introduced are my own.}
+\thanks{Notes by: Jackson Van Dyke. Please email me at 
+\href{mailto:jacksontvandyke@utexas.edu}{\tt jacksontvandyke@utexas.edu} with any
+corrections or concerns.}
 \maketitle
 \tableofcontents
 $0
@@ -742,6 +743,32 @@ snippet cylinder "tikzpicture of cylinder" b
   in
     ([xshift=-\pgflinewidth] A.before bottom) arc [start angle=270, delta angle=180,
     x radius=\n2, y radius=\n1];
+\end{tikzpicture}
+endsnippet
+
+snippet cone "tikz picture of cone" b
+\begin{tikzpicture}[scale = 0.25,rotate=-90]
+\begin{scope}
+\clip (-2,0) rectangle (2,1cm);
+\draw[dashed] (0,0) circle(2cm and 0.35cm);
+\end{scope}
+\begin{scope}
+\clip (-2,0) rectangle (2,-1cm);
+\draw (0,0) circle(2cm and 0.35cm);
+\end{scope}
+\draw (-2,0) -- (0,4) -- (2,0);
+\end{tikzpicture}
+\hspace{-7pt}
+\begin{tikzpicture}[scale = 0.25,rotate=90]
+\begin{scope}
+\clip (-2,0) rectangle (2,1cm);
+\draw (0,0) circle(2cm and 0.35cm);
+\end{scope}
+\begin{scope}
+\clip (-2,0) rectangle (2,-1cm);
+\draw (0,0) circle(2cm and 0.35cm);
+\end{scope}
+\draw (-2,0) -- (0,4) -- (2,0);
 \end{tikzpicture}
 endsnippet
 
