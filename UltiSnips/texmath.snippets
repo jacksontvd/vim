@@ -51,6 +51,10 @@ snippet texor "texorpdfstring" i
 \texorpdfstring{$$1$}{$2}$0
 endsnippet
 
+snippet bb "\mathbb{}" i
+\mathbb{$1}$0
+endsnippet
+
 snippet :: "Colon (\colon instead of :)" iA
 \colon
 endsnippet
@@ -295,7 +299,7 @@ $0
 endsnippet
 
 snippet beam "beamer template" b
-\documentclass{beamer}
+\documentclass[usenames,dvipsnames]{beamer}
 \RequirePackage{etex}
 \usepackage{hyperref}
 \bibliographystyle{amsalpha}
