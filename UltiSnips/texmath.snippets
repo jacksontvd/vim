@@ -83,6 +83,14 @@ snippet tt "text" i
 \text{$1}$0
 endsnippet
 
+snippet or "\text{or}" i
+\text{or}$0
+endsnippet
+
+snippet mop "\mathop{}" i
+\mathop{$1}$0
+endsnippet
+
 snippet ld "Langlands dual group" i
 \langdual{$1}$0
 endsnippet
@@ -688,6 +696,33 @@ snippet arc "tikzpicture of arc" b
 \end{scope}
 \draw[fill=black,color=black] (0,1) circle (2pt);
 \draw[fill=black,color=black] (0,0) circle (2pt);
+\end{tikzpicture}
+endsnippet
+
+snippet inter "tikzpicture of an interface" b
+\begin{tikzpicture}
+[nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
+linedecorate/.style={-},%
+scale=1,baseline]
+%%% vertices
+% \draw[fill=black,color=black] (0,0) circle (2pt);
+% \draw[fill=black,color=black] (1,0) circle (2pt);
+\node (A) at (0,0) {};
+\node (B) at (1,0) [nodedecorate] {};
+\node (C) at (2,0) {};
+%%% edges
+\path (A) edge[line width=1pt,linedecorate,color=blue] node {} (B);
+\path (B) edge[line width=1pt,linedecorate,color=red] node {} (C);
+%%% alternative edges
+% \draw (0,0) -- (1,0);
+% \path  (0,0)   edge[left loop] (0,0);
+% \path  (0,0)   edge[right loop] (0,0);
+% \path  (0,0)   edge[up loop] (0,0);
+% \path  (0,0)   edge[down loop] (0,0);
+% \path  (0,0)   edge[bend right] (1,0);
+% \path  (0,0)   edge[bend left] (1,0);
+%%% vertex labels
+% \node at (0,-0.5) {1};
 \end{tikzpicture}
 endsnippet
 
