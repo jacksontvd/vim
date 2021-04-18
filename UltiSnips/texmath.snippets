@@ -638,7 +638,7 @@ snippet tikz "tikzpicture template" b
 \begin{tikzpicture}
 [nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
 linedecorate/.style={-},%
-scale=1,baseline]
+scale=1,baseline={(current bounding box.center)}]
 %%% vertices
 % \draw[fill=black,color=black] (0,0) circle (2pt);
 % \draw[fill=black,color=black] (1,0) circle (2pt);
@@ -660,7 +660,7 @@ scale=1,baseline]
 endsnippet
 
 snippet braid "tikzpicture Braid template" b
-\begin{tikzpicture}[baseline = \lineheight]
+\begin{tikzpicture}[baseline = {(current bounding box.center)}]
 \braid[braid colour=red,strands=3,braid start={(0,0)}]
 {\sigma_1 \sigma_2 \sigma_1^{-1}}
 \node[font=\Huge] at (4.5,-1.5) {\(=\)};
@@ -670,7 +670,7 @@ snippet braid "tikzpicture Braid template" b
 endsnippet
 
 snippet knot "tikzpicture knot template" b
-\begin{tikzpicture}[scale=1/4,baseline=-2pt]
+\begin{tikzpicture}[scale=1/4,baseline={(current bounding box.center)}]
 \begin{knot}[
 %  draft mode=crossings,
 flip crossing=2
@@ -682,14 +682,30 @@ flip crossing=2
 endsnippet
 
 snippet circle "Tikzpicture of circle"
-\begin{tikzpicture}[scale=1,baseline=-2pt]
+\begin{tikzpicture}[scale=1,baseline={(current bounding box.center)}]
 \draw[fill=none,color=black] (0,0) circle (0.5);
 \draw[fill=black,color=black] (0,0.5) circle (2pt);
 \end{tikzpicture}$0
 endsnippet
 
+snippet sphere "Tikzpicture of a sphere"
+\begin{tikzpicture}
+\draw (0,0) circle (2cm);
+\draw (-2,0) arc (180:360:2 and 0.6);
+\draw[dashed] (2,0) arc (0:180:2 and 0.6);
+\end{tikzpicture}
+endsnippet
+
+snippet curve "Curved lines"
+\begin{tikzpicture}[rotate=180]
+% curved lines
+\draw[smooth] (0,0) to[out=0,in=180] (3,-1);
+\draw[smooth] (0,1) to[out=0,in=180] (3,2);
+\end{tikzpicture}$0
+endsnippet
+
 snippet arc "tikzpicture of arc" b
-\begin{tikzpicture}[baseline=10]
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
 \begin{scope}
 \clip (0,0) rectangle (0.7,1);
 \draw (0,0.5) circle(0.5);
@@ -703,7 +719,7 @@ snippet inter "tikzpicture of an interface" b
 \begin{tikzpicture}
 [nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
 linedecorate/.style={-},%
-scale=1,baseline]
+scale=1,baseline={(current bounding box.center)}]
 %%% vertices
 % \draw[fill=black,color=black] (0,0) circle (2pt);
 % \draw[fill=black,color=black] (1,0) circle (2pt);
@@ -727,7 +743,7 @@ scale=1,baseline]
 endsnippet
 
 snippet zorro "tikzpicture of the mark of zorro bordism" b
-\begin{tikzpicture}[baseline]
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
 \begin{scope}
 \clip (0,0) rectangle (0.6,1);
 \draw (0,0.5) circle(0.5);
@@ -752,7 +768,7 @@ snippet zorro "tikzpicture of the mark of zorro bordism" b
 endsnippet
 
 snippet disk "tikpicture of a disk bordism" b
-\begin{tikzpicture}[yscale=0.5,rotate=-90,baseline=-2pt]
+\begin{tikzpicture}[yscale=0.5,rotate=-90,baseline={(current bounding box.center)}]
 % \begin{tikzpicture}
 % Draw a shaded ball, but clip so only the lower half shows.
 % The arc in the clipping region is the foreground part of the equator
@@ -773,7 +789,7 @@ snippet disk "tikpicture of a disk bordism" b
 endsnippet
 
 snippet cylinder "tikzpicture of cylinder" b
-\begin{tikzpicture}[baseline=-2]
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
   \node[cylinder,draw=black,aspect=0.7,
   minimum height=60pt,minimum width=20pt,
   shape border rotate=0,cylinder uses custom fill, cylinder body     
@@ -816,7 +832,7 @@ snippet cone "tikz picture of cone" b
 endsnippet
 
 snippet maca "tikzpicture of the macaroni bordism" b
-\begin{tikzpicture}[xscale=-1,baseline = -20]
+\begin{tikzpicture}[xscale=-1,baseline ={(current bounding box.center)}]
 \begin{scope}
 \clip (-0.01,-2) rectangle (0.5,0.5);
 \node[cylinder,draw=black,aspect=0.7,
@@ -839,7 +855,7 @@ fill=gray!60,cylinder end fill=gray!10] at (0,-40pt) {};
 endsnippet
 
 snippet comaca "tikzpicture of the backwards macaroni bordism" b
-\begin{tikzpicture}[baseline=-20]
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
 \begin{scope}
 \clip (-0.01,-2) rectangle (0.5,0.5);
 \node[cylinder,draw=black,aspect=0.7,
@@ -862,7 +878,7 @@ fill=gray!60,cylinder end fill=gray!10] at (0,-40pt) {};
 endsnippet
 
 snippet pants "tikzpicture of pair of pants bordism" b
-\begin{tikzpicture}[baseline=-2pt,
+\begin{tikzpicture}[baseline={(current bounding box.center)},
 tqft/cobordism/.style={draw},tqft/every boundary component/.style={draw},
 every tqft/.append style={transform shape}]
 \begin{scope}[rotate=-90]
@@ -871,11 +887,34 @@ every tqft/.append style={transform shape}]
 \end{tikzpicture}
 endsnippet
 
+snippet 3pants "tikzpicture of three-dimensional pair of pants bordism" b
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
+% small sphere
+\tikz[scale=0.2,baseline={(current bounding box.center)}]{
+\draw (0,0) circle (2cm);
+\draw (-2,0) arc (180:360:2 and 0.6);
+\draw[dashed] (2,0) arc (0:180:2 and 0.6);};
+% space
+\hspace{0.5cm}
+% large sphere
+\draw (0,0) circle (2cm);
+\draw (-2,0) arc (180:360:2 and 0.6);
+\draw[dashed] (2,0) arc (0:180:2 and 0.6);
+% space
+\hspace{0.5cm}
+% small sphere
+\tikz[scale=0.2,baseline={(current bounding box.center)}]{
+\draw (0,0) circle (2cm);
+\draw (-2,0) arc (180:360:2 and 0.6);
+\draw[dashed] (2,0) arc (0:180:2 and 0.6);};
+\end{tikzpicture}
+endsnippet
+
 snippet graph "tikzpicture graph template" b
 \begin{tikzpicture}
 [nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
 linedecorate/.style={-},%
-scale=1,baseline]
+scale=1,baseline={(current bounding box.center)}]
 %% vertices
 \foreach \nodename/\x/\y in {
 1/0/0,
@@ -910,7 +949,7 @@ snippet pentagon "Pentagonal graph (5-wheel)" b
 \begin{tikzpicture}
 [nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
 linedecorate/.style={-},%
-scale=1,baseline]
+scale=1,baseline={(current bounding box.center)}]
 %% vertices
 \foreach \nodename/\x/\y in {
 1/0.9510/0.3090, 
@@ -949,7 +988,7 @@ snippet triangle "Triangular graph (K_4)" b
 \begin{tikzpicture}
 [nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
 linedecorate/.style={-},%
-scale=1,baseline=\lineheight]
+scale=1,baseline={(current bounding box.center)}]
 %% vertices
 \foreach \nodename/\x/\y in {
 1/-0.57/0,
