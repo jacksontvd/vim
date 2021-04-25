@@ -83,8 +83,12 @@ snippet tt "text" i
 \text{$1}$0
 endsnippet
 
-snippet or "\text{or}" i
+snippet ori "\text{or}" i
 \text{or}$0
+endsnippet
+
+snippet box "print small box" i
+\fbox{\phantom{-$1}}$0
 endsnippet
 
 snippet mop "\mathop{}" i
@@ -639,21 +643,18 @@ snippet tikz "tikzpicture template" b
 [nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
 linedecorate/.style={-},%
 scale=1,baseline={(current bounding box.center)}]
+%%% rectangle
+\draw[fill=gray!30] (0,0) rectangle (1,1);
 %%% vertices
 % \draw[fill=black,color=black] (0,0) circle (2pt);
 % \draw[fill=black,color=black] (1,0) circle (2pt);
 \node (A) at (0,0) [nodedecorate] {};
 \node (B) at (1,0) [nodedecorate] {};
 %%% edges
-\path (A) edge[linedecorate] node {} (B);
+\path (A.center) edge[linedecorate] node {} (B.center);
 %%% alternative edges
+% \draw (A.center) -- (B.center);
 % \draw (0,0) -- (1,0);
-% \path  (0,0)   edge[left loop] (0,0);
-% \path  (0,0)   edge[right loop] (0,0);
-% \path  (0,0)   edge[up loop] (0,0);
-% \path  (0,0)   edge[down loop] (0,0);
-% \path  (0,0)   edge[bend right] (1,0);
-% \path  (0,0)   edge[bend left] (1,0);
 %%% vertex labels
 % \node at (0,-0.5) {1};
 \end{tikzpicture}$0
@@ -688,8 +689,35 @@ snippet circle "Tikzpicture of circle"
 \end{tikzpicture}$0
 endsnippet
 
+snippet ufo "Tikzpicture of ufo or ravioli"
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
+% outer rim of ravioli
+\draw[fill=gray!30] (4,0) ellipse (4 and 1.5);
+% top outline of filling on top
+\begin{scope}
+\clip (0,0.2) rectangle (8,2.5);
+\draw[color=black,fill=gray!30] (4,0.2) ellipse (3 and 1.7);
+\end{scope}
+% dashed outline of filling on bottom
+\begin{scope}
+\clip (0,0.2) rectangle (8,-2.5);
+\draw[color=gray,fill=gray!30,dashed] (4,0.2) ellipse (3 and 1.3);
+\end{scope}
+% dotted ridge along the bottom of the filling
+\begin{scope}
+\clip (0,0.2) rectangle (8,-2.5);
+\draw[color=gray,fill=gray!30,dotted] (4,0.2) ellipse (3 and 0.7);
+\end{scope}
+% dashed outer rim behind upper filling
+\begin{scope}
+\clip (4,0.2) ellipse (3 and 1.7);
+\draw[dashed,color=gray] (4,0) ellipse (4 and 1.5);
+\end{scope}
+\end{tikzpicture}
+endsnippet
+
 snippet sphere "Tikzpicture of a sphere"
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
 \draw (0,0) circle (2cm);
 \draw (-2,0) arc (180:360:2 and 0.6);
 \draw[dashed] (2,0) arc (0:180:2 and 0.6);
@@ -805,7 +833,7 @@ snippet cylinder "tikzpicture of cylinder" b
 \end{tikzpicture}
 endsnippet
 
-snippet cone "tikz picture of cone" b
+snippet ccone "tikz picture of a double cone" b
 \begin{tikzpicture}[scale = 0.25,rotate=-90]
 \begin{scope}
 \clip (-2,0) rectangle (2,1cm);
@@ -828,6 +856,37 @@ snippet cone "tikz picture of cone" b
 \draw (0,0) circle(2cm and 0.35cm);
 \end{scope}
 \draw (-2,0) -- (0,4) -- (2,0);
+\end{tikzpicture}
+endsnippet
+
+snippet cone "tikz picture of a cone of a topological space" b
+\begin{tikzpicture}
+% nodes along curve
+\node (A) at (0,0) {};
+\node (B) at (1.5,0.25) {};
+\node (C) at (2,0.15)  {};
+\node (D) at (3,0.75)  {};
+\node (E) at (0.75,1.25)  {};
+\node (F) at (-1.5,0.5)  {};
+% cone point
+\node[shape=circle,fill=black,inner sep=1.5pt] (P) at (0.75,-4)  {};
+% curved line for $M$
+\draw[smooth] (A.center) to[out=0,in=180] 
+(B.center) to[out=0,in=180] 
+(C.center) to[out=0,in=-110] 
+(D.center) to[out=70,in=0] 
+(E.center) to[out=180,in=110] 
+(F.center) to[out=-70,in=180] 
+(A.center);
+% cone lines
+\draw (P.center) -- (A.center);
+\draw (P.center) -- (B.center);
+\draw (P.center) -- (C.center);
+\draw (P.center) -- (D.center);
+\draw (P.center) -- (F.center);
+% (partially) dashed cone lines
+\draw[dashed] (P.center) -- (0.75,0.1);
+\draw (0.75,0.1) -- (E.center);
 \end{tikzpicture}
 endsnippet
 
@@ -884,6 +943,18 @@ every tqft/.append style={transform shape}]
 \begin{scope}[rotate=-90]
 \pic [draw, tqft/pair of pants,fill=black,fill opacity = 0.3];
 \end{scope}
+\end{tikzpicture}
+endsnippet
+
+snippet fpants "tikzpicture of flattened pair of pants bordism" b
+\begin{tikzpicture}[baseline={(current bounding box.center)},scale=0.5]
+% gray background
+\fill[color=black!30] (0,0) circle (2cm);
+% waist
+\draw[color=black] (0,0) circle (2cm);
+% ankles
+\draw[color=black,fill=white] (1,0) circle (0.5cm);
+\draw[color=black,fill=white] (-1,0) circle (0.5cm);
 \end{tikzpicture}
 endsnippet
 
