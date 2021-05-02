@@ -689,8 +689,8 @@ snippet circle "Tikzpicture of circle"
 \end{tikzpicture}$0
 endsnippet
 
-snippet ufo "Tikzpicture of ufo or ravioli"
-\begin{tikzpicture}[baseline={(current bounding box.center)}]
+snippet ufo "Tikzpicture of ufo (/big ravioli)"
+\begin{tikzpicture}[baseline={(current bounding box.center)},scale=0.5]
 % outer rim of ravioli
 \draw[fill=gray!30] (4,0) ellipse (4 and 1.5);
 % top outline of filling on top
@@ -716,11 +716,45 @@ snippet ufo "Tikzpicture of ufo or ravioli"
 \end{tikzpicture}
 endsnippet
 
+snippet ravioli "Tikzpicture of a ravioli (/small ufo)"
+\begin{tikzpicture}
+[nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
+linedecorate/.style={-},%
+scale=0.5,baseline={(current bounding box.center)}]
+% outer part of ravioli
+\draw[fill=gray!30] (0,0) ellipse (1 and 0.5);
+% dashed bottom of ravioli
+\draw[smooth,linedecorate,dashed,dash pattern=on 1pt off 1pt] (-0.2,0) to[out=0,in=180] (0,-0.2) to[out=0,in=180] (0.2,0);
+% top of ravioli
+\draw[smooth,linedecorate] (-0.5,0) to[out=0,in=180] (-0.2,0) to[out=0,in=180] (0,0.2) to[out=0,in=180]
+(0.2,0) to[out=0,in=180] (0.5,0);
+% front of ravioli
+\draw[smooth,linedecorate,dotted,color=gray] (-0.2,0) to[out=0,in=180] (0,-0.05) to[out=0,in=180] (0.2,0);
+% back of ravioli
+\draw[smooth,linedecorate,dotted,color=gray] (-0.2,0) to[out=0,in=180] (0,0.05) to[out=0,in=180] (0.2,0);
+\end{tikzpicture}
+endsnippet
+
 snippet sphere "Tikzpicture of a sphere"
 \begin{tikzpicture}[baseline={(current bounding box.center)}]
 \draw (0,0) circle (2cm);
 \draw (-2,0) arc (180:360:2 and 0.6);
 \draw[dashed] (2,0) arc (0:180:2 and 0.6);
+\end{tikzpicture}
+endsnippet
+
+snippet surface "Tikzpicture of a genus 2 surface"
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
+% surface outline:
+\draw[smooth] (0,1) to[out=30,in=150] (2,1) to[out=-30,in=210] (3,1) to[out=30,in=150] (5,1) to[out=-30,in=30] (5,-1) to[out=210,in=-30] (3,-1) to[out=150,in=30] (2,-1) to[out=210,in=-30] (0,-1) to[out=150,in=-150] (0,1);
+% genus 2:
+\draw[smooth] (0.4,0.1) .. controls (0.8,-0.25) and (1.2,-0.25) .. (1.6,0.1);
+\draw[smooth] (0.5,0) .. controls (0.8,0.2) and (1.2,0.2) .. (1.5,0);
+\draw[smooth] (3.4,0.1) .. controls (3.8,-0.25) and (4.2,-0.25) .. (4.6,0.1);
+\draw[smooth] (3.5,0) .. controls (3.8,0.2) and (4.2,0.2) .. (4.5,0);
+% separating $S^1$:
+\draw[line width=1pt] (2.5,-0.85) arc(270:90:0.3 and 0.85);
+\draw[dashed, line width=1pt] (2.5,-0.85) arc(270:450:0.3 and 0.85);
 \end{tikzpicture}
 endsnippet
 
