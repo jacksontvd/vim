@@ -720,18 +720,18 @@ snippet ravioli "Tikzpicture of a ravioli (/small ufo)"
 \begin{tikzpicture}
 [nodedecorate/.style={shape=circle,fill=black,inner sep=1.5pt},%
 linedecorate/.style={-},%
-scale=0.5,baseline={(current bounding box.center)}]
+scale=0.7,baseline={(current bounding box.center)}]
 % outer part of ravioli
-\draw[fill=gray!30] (0,0) ellipse (1 and 0.5);
+\draw[fill=gray!30] (0,0) ellipse (0.8 and 0.4);
+% gray dotted front of ravioli (background)
+\draw[smooth,linedecorate,color=gray,dotted,dash pattern=on 0.5pt off 0.5pt] (-0.2,0) to[out=0,in=180] (0,-0.05) to[out=0,in=180] (0.2,0);
+% gray dotted back of ravioli (background)
+\draw[smooth,linedecorate,color=gray,dotted,dash pattern=on 0.5pt off 0.5pt] (-0.2,0) to[out=0,in=180] (0,0.05) to[out=0,in=180] (0.2,0);
 % dashed bottom of ravioli
 \draw[smooth,linedecorate,dashed,dash pattern=on 1pt off 1pt] (-0.2,0) to[out=0,in=180] (0,-0.2) to[out=0,in=180] (0.2,0);
 % top of ravioli
 \draw[smooth,linedecorate] (-0.5,0) to[out=0,in=180] (-0.2,0) to[out=0,in=180] (0,0.2) to[out=0,in=180]
 (0.2,0) to[out=0,in=180] (0.5,0);
-% front of ravioli
-\draw[smooth,linedecorate,dotted,color=gray] (-0.2,0) to[out=0,in=180] (0,-0.05) to[out=0,in=180] (0.2,0);
-% back of ravioli
-\draw[smooth,linedecorate,dotted,color=gray] (-0.2,0) to[out=0,in=180] (0,0.05) to[out=0,in=180] (0.2,0);
 \end{tikzpicture}
 endsnippet
 
@@ -869,26 +869,24 @@ endsnippet
 
 snippet ccone "tikz picture of a double cone" b
 \begin{tikzpicture}[scale = 0.25,rotate=-90]
+% dashed circle of one half
 \begin{scope}
 \clip (-2,0) rectangle (2,1cm);
 \draw[dashed] (0,0) circle(2cm and 0.35cm);
 \end{scope}
+% solid circle of one half
 \begin{scope}
 \clip (-2,0) rectangle (2,-1cm);
 \draw (0,0) circle(2cm and 0.35cm);
 \end{scope}
+% point of one half
 \draw (-2,0) -- (0,4) -- (2,0);
 \end{tikzpicture}
 \hspace{-7pt}
 \begin{tikzpicture}[scale = 0.25,rotate=90]
-\begin{scope}
-\clip (-2,0) rectangle (2,1cm);
+% solid circle of one half
 \draw (0,0) circle(2cm and 0.35cm);
-\end{scope}
-\begin{scope}
-\clip (-2,0) rectangle (2,-1cm);
-\draw (0,0) circle(2cm and 0.35cm);
-\end{scope}
+% point of one half
 \draw (-2,0) -- (0,4) -- (2,0);
 \end{tikzpicture}
 endsnippet
