@@ -1,4 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/jacksontvd/Documents/lists'
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/Users/jacksontvd/Documents/lists/math_stories'
+let g:netrw_dirhist_8='/Users/jacksontvd/Documents/lists/stories'
+let g:netrw_dirhist_7='/Users/jacksontvd/Documents/papers/3d_reconstruction/anomalies'
+let g:netrw_dirhist_6='/Users/jacksontvd/Library/texmf/bibtex/bib'
+let g:netrw_dirhist_5='/Users/jacksontvd/Documents/papers/3d_reconstruction/anomalies/dbz_meetings'
+let g:netrw_dirhist_4='/Users/jacksontvd/Documents/events'
+let g:netrw_dirhist_3='/Users/jacksontvd/Documents'
 let g:netrw_dirhist_2='/Users/jacksontvd/Documents/events'
+let g:netrw_dirhist_1='/Users/jacksontvd/Documents/gl_book'

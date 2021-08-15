@@ -108,6 +108,10 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
+snippet 2/ "Double slash" iA
+\dblslash$0
+endsnippet
+
 snippet \barr "Wide bar" iA
 \\overline{$1}$0
 endsnippet
@@ -1011,6 +1015,14 @@ snippet 3pants "tikzpicture of three-dimensional pair of pants bordism" b
 \draw (-2,0) arc (180:360:2 and 0.6);
 \draw[dashed] (2,0) arc (0:180:2 and 0.6);};
 \end{tikzpicture}
+endsnippet
+
+snippet loopup "loop up setting for arrow in tikzcd" b
+[out=60,in=120,loop]
+endsnippet
+
+snippet loopdown "loop down setting for arrow in tikzcd" b
+[out=240,in=300,loop]
 endsnippet
 
 snippet graph "tikzpicture graph template" b
