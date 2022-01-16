@@ -65,11 +65,8 @@ set ttyfast
 "ctrl-l redraws the screen (get rid of search highlighting)
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" set colorscheme (off in favor of badwolf)
-" colorscheme astronaut
-
 " set colorscheme
-colorscheme badwolf
+colorscheme adaryn
 
 " command line completion
 set wildmenu
