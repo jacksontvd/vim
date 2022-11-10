@@ -66,7 +66,8 @@ set ttyfast
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " set colorscheme
-colorscheme adaryn
+" colorscheme anotherdark
+colorscheme badwolf
 
 " command line completion
 set wildmenu
@@ -166,6 +167,10 @@ let g:vimtex_fold_manual = 1
 set spell
 set spelllang=en_gb
 inoremap <C-p> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" to get misspelled words to be underlined:
+hi clear SpellBad
+hi SpellBad cterm=underline
 
 " define environments which will contain underscores etc to prevent error
 " highlighting
