@@ -487,9 +487,9 @@ $1
 endsnippet
 
 snippet thm "Theorem" b
-\begin{thm}
+\begin{theorem}
 $1
-\end{thm}$0
+\end{theorem}$0
 endsnippet
 
 snippet thm* "Unnumbered Theorem" b
@@ -526,6 +526,30 @@ snippet con "Conjecture" b
 \begin{con}
 $1
 \end{con}$0
+endsnippet
+
+snippet hyp "Hypothesis" b
+\begin{hyp}
+$1
+\end{hyp}$0
+endsnippet
+
+snippet goal "Goal" b
+\begin{goal}
+$1
+\end{goal}$0
+endsnippet
+
+snippet goal* "Unnumbered Goal" b
+\begin{goal*}
+$1
+\end{goal*}$0
+endsnippet
+
+snippet hyp* "Unnumbered Hypothesis" b
+\begin{hyp*}
+$1
+\end{hyp*}$0
 endsnippet
 
 snippet con* "Unnumbered Conjecture" b
@@ -837,6 +861,28 @@ snippet zorro "tikzpicture of the mark of zorro bordism" b
 \node at (0,-0.7) {$+$};
 \node at (2,-0.7) {$+$};
 \end{tikzpicture}
+endsnippet
+
+snippet snake "tikzcd of the connecting homomorphism from the snake lemma" b
+\begin{equation}
+\begin{cd}
+\ker\left( f \right) \arrow{r} &
+\ker\left( g \right) \arrow{r}
+\arrow[d, phantom, ""{coordinate, name=Z}]&
+\ker\left( h \right)
+\arrow[dll,
+"\delta",
+rounded corners,
+to path={ -- ([xshift=2ex]\tikztostart.east)
+|- (Z) [near end]\tikztonodes
+-| ([xshift=-2ex]\tikztotarget.west)
+-- (\tikztotarget)}]
+\\\
+\coker\left( f \right) \arrow{r} &
+\coker\left( g \right) \arrow{r} &
+\coker\left( h\right)
+\end{cd}
+\end{equation}
 endsnippet
 
 snippet disk "tikpicture of a disk bordism" b
