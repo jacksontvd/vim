@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/jacksonvandyke/Documents/postdoc_apps/blank_cl'
+let g:netrw_dirhist_9='/Users/jacksonvandyke/Documents/papers/three_dimensional_anomalies'
 let g:netrw_dirhist_8='/Users/jacksonvandyke/Desktop'
 let g:netrw_dirhist_7='/Users/jacksonvandyke/Documents/papers/projective_symmetries'
 let g:netrw_dirhist_6='/Users/jacksonvandyke/Documents/papers'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_4='/Users/jacksonvandyke/Documents/papers/equiv_rw'
 let g:netrw_dirhist_3='/Users/jacksonvandyke/Documents/talks/GCS_sp23/slides'
 let g:netrw_dirhist_2='/Users/jacksonvandyke/Documents'
 let g:netrw_dirhist_1='/Users/jacksonvandyke/Documents/papers'
-let g:netrw_dirhist_0='/Users/jacksonvandyke/Documents/papers/proj_tens'
-let g:netrw_dirhist_9='/Users/jacksonvandyke/Documents/papers/grad_school_junk/fusion_categories'
